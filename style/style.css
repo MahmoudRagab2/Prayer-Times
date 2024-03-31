@@ -1,0 +1,141 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: noor;
+  src: url(fonts/ArbFONTS-AGCLight.ttf);
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: noor;
+  src: url(fonts/ArbFONTS-AGCRegular.ttf);
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: noor;
+  src: url(fonts/ArbFONTS-AGCBold.ttf);
+  font-weight: 800;
+}
+
+.d-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+body {
+  min-height: 100vh;
+  direction: rtl;
+  background: url(home.jpg) no-repeat center/cover;
+  color: #fff;
+  font-family: noor;
+  font-weight: 400;
+  display: flex;
+  flex-direction: column;
+}
+
+.city-date {
+  background-color: #00000075;
+  padding: 40px 20px;
+}
+
+.city-date .city {
+  margin-bottom: 20px;
+  font-size: 70px;
+}
+
+.city-date .date {
+  padding-right: 5px;
+  font-size: 28px;
+}
+
+@media screen and (max-width: 567px) {
+  .city-date .city {
+    font-size: 36px;
+  }
+
+  .city-date .date {
+    font-size: 24px;
+  }
+}
+
+.city-date .location .select-box {
+  background-color: #2b2b9cb4;
+  color: #fff;
+  width: 40%;
+  font-size: 24px;
+  font-family: noor;
+  font-weight: 400;
+  margin-top: 40px;
+  padding: 5px 10px;
+  outline: none;
+  border: 1px solid #4c4cf1;
+  border-radius: 14px;
+  cursor: pointer;
+}
+
+@media (max-width: 567px) {
+  .city-date .location .select-box {
+    width: 100%;
+    font-size: 20px;
+    margin-top: 0;
+  }
+
+  .city-date .location .country-option {
+    margin-top: 40px;
+  }
+}
+
+.times-box {
+  flex: 1;
+  max-width: 1200px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  gap: 30px;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+.times-box .prayer-time {
+  padding: 10px;
+  background-color: #0000002d;
+  backdrop-filter: blur(10px);
+  text-align: center;
+  border: 1px solid #e6e6e6;
+  border-radius: 12px;
+}
+
+@media screen and (max-width: 767px) {
+  .times-box .prayer-time {
+    flex-basis: 100%;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .times-box .prayer-time {
+    flex-basis: calc(50% - 30px);
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .times-box .prayer-time {
+    flex-basis: calc(33.5% - 30px);
+  }
+}
+
+.times-box .prayer-time h3 {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.times-box .prayer-time p {
+  font-size: 24px;
+}

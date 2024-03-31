@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prayer Times</title>
+  <!-- Main File Css -->
+  <link rel="stylesheet" href="style/style.css">
+</head>
+
+<body>
+
+
+  <!-- City Name And Date -->
+  <div class="city-date">
+    <h1 class="city">-- - --</h1>
+    <p class="date">-- - ----/--/--</p>
+
+    <div class="location d-flex">
+
+      <!-- Countrys Option -->
+      <select class="select-box country-option"></select>
+
+      <!-- Cities Option -->
+      <select class="select-box city-option"></select>
+
+    </div>
+  </div>
+
+
+
+  <div class="times-box">
+
+    <div class="prayer-time">
+      <h3>الفجر</h3>
+      <p id="fajr">--</p>
+    </div>
+    <div class="prayer-time">
+      <h3>الشروق</h3>
+      <p id="sunrise">--</p>
+    </div>
+    <div class="prayer-time">
+      <h3>الظهر</h3>
+      <p id="dhuhr">--</p>
+    </div>
+    <div class="prayer-time">
+      <h3>العصر</h3>
+      <p id="asr">--</p>
+    </div>
+    <div class="prayer-time">
+      <h3>المغرب</h3>
+      <p id="maghrib">--</p>
+    </div>
+    <div class="prayer-time">
+      <h3>العشاء</h3>
+      <p id="isha">--</p>
+    </div>
+
+  </div>
+
+
+
+</body>
+<!-- Axios File -->
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<!-- Main Js File -->
+<script src="logic/main.js"></script>
+
+</html>
