@@ -57,12 +57,16 @@ body {
 }
 
 @media screen and (max-width: 567px) {
+  .city-date {
+    padding: 20px 20px;
+  }
+
   .city-date .city {
-    font-size: 36px;
+    font-size: 34px;
   }
 
   .city-date .date {
-    font-size: 24px;
+    font-size: 20px;
   }
 }
 
@@ -84,7 +88,7 @@ body {
 @media (max-width: 567px) {
   .city-date .location .select-box {
     width: 100%;
-    font-size: 20px;
+    font-size: 18px;
     margin-top: 0;
   }
 
@@ -106,14 +110,14 @@ body {
 
 .times-box .prayer-time {
   padding: 10px;
-  background-color: #0000002d;
-  backdrop-filter: blur(10px);
+  background-color: #00000061;
+  backdrop-filter: blur(14px);
   text-align: center;
   border: 1px solid #e6e6e6;
   border-radius: 12px;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 567px) {
   .times-box .prayer-time {
     flex-basis: 100%;
   }
@@ -138,4 +142,18 @@ body {
 
 .times-box .prayer-time p {
   font-size: 24px;
+}
+
+@media screen and (max-width: 567px) {
+  .times-box {
+    gap: 15px;
+  }
+
+  .times-box .prayer-time h3 {
+    font-size: 26px;
+  }
+
+  .times-box .prayer-time p {
+    font-size: 20px;
+  }
 }
