@@ -61,7 +61,7 @@ countriesOptions.addEventListener("change", function () {
       getCities(this.value, response.data[this.value]);
       Location.country = this.value;
       Location.city = citiesOptions.value;
-      times();
+      prayerTimes();
     })
     .catch((error) => {
       console.error("Error fetching countries data:", error);
@@ -72,7 +72,7 @@ citiesOptions.addEventListener("change", function () {
   Location.city = this.value;
   Location.country = countriesOptions.value;
   cityName.textContent = `${Location.country} - ${citiesOptions.value}`;
-  times();
+  prayerTimes();
 });
 
 function convertTo12HourFormat(time24) {
@@ -83,7 +83,7 @@ function convertTo12HourFormat(time24) {
   return hours12 + ":" + minutes + " " + ampm;
 }
 
-function times() {
+function prayerTimes() {
   axios
     .get("https://api.aladhan.com/v1/calendarByCity", {
       params: Location,
@@ -102,4 +102,4 @@ function times() {
     });
 }
 
-times();
+prayerTimes();
