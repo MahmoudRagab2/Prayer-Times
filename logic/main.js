@@ -1,13 +1,7 @@
-const savedLocation = localStorage.getItem("Location");
-const LocationFromLocalstorage = JSON.parse(
-  localStorage.getItem("Location")
-);
-const Location = savedLocation
-  ? JSON.parse(savedLocation)
-  : {
-      country: "مصر",
-      city: "القاهرة",
-    };
+const Location = {
+  country: "مصر",
+  city: "القاهرة",
+};
 
 const cityName = document.querySelector(".city");
 const dateElement = document.querySelector(".date");
@@ -40,20 +34,12 @@ function getCountries() {
         optionElement.value = optionElement.textContent = country;
         countriesOptions.appendChild(optionElement);
       }
-      // إذا كان هناك قيمة محفوظة في localStorage، قم بتعيينها إلى countriesOptions.value
-      if (LocationFromLocalstorage) {
-        countriesOptions.value = LocationFromLocalstorage.country;
-      }
-      
-      // احصل على المدن بناءً على البلد المحدد
-      const selectedCountry = countriesOptions.value;
-      getCities(selectedCountry, response.data[selectedCountry], LocationFromLocalstorage ? LocationFromLocalstorage.city : "");
+      getCities("مصر", response.data["مصر"], "");
     })
     .catch((error) => {
       console.error("Error fetching countries data:", error);
     });
 }
-
 
 getCountries();
 
@@ -75,7 +61,6 @@ countriesOptions.addEventListener("change", function () {
       getCities(this.value, response.data[this.value]);
       Location.country = this.value;
       Location.city = citiesOptions.value;
-      localStorage.setItem("Location", JSON.stringify(Location));
       prayerTimes();
     })
     .catch((error) => {
@@ -87,8 +72,6 @@ citiesOptions.addEventListener("change", function () {
   Location.city = this.value;
   Location.country = countriesOptions.value;
   cityName.textContent = `${Location.country} - ${citiesOptions.value}`;
-  Location.city = LocationFromLocalstorage.city || "القاهرة";
-  localStorage.setItem("Location", JSON.stringify(Location));
   prayerTimes();
 });
 
@@ -115,7 +98,7 @@ function prayerTimes() {
       isha.textContent = convertTo12HourFormat(times.Isha.split(" ")[0]);
     })
     .catch((error) => {
-      alert("لا يمكن جلب مواقيت الصلاة لهذا البلد")
+      console.error("Error fetching prayer times:", error);
     });
 }
 
