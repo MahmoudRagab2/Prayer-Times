@@ -1,6 +1,6 @@
 const Location = {
-  country: "مصر",
-  city: "القاهرة",
+  country: localStorage.getItem("selectedCountry") || "مصر",
+  city: localStorage.getItem("selectedCity") || "القاهرة",
 };
 
 const cityName = document.querySelector(".city");
@@ -33,8 +33,13 @@ function getCountries() {
         let optionElement = document.createElement("option");
         optionElement.value = optionElement.textContent = country;
         countriesOptions.appendChild(optionElement);
+        countriesOptions.value = Location.country;
       }
-      getCities("مصر", response.data["مصر"], "");
+      getCities(
+        Location.country,
+        response.data[Location.country],
+        Location.city
+      );
     })
     .catch((error) => {
       console.error("Error fetching countries data:", error);
@@ -50,7 +55,7 @@ function getCities(selectedCountry, cities, selectedCity) {
     optionElement.value = optionElement.textContent = cities[city];
     citiesOptions.appendChild(optionElement);
   }
-  cityName.value = selectedCity ? selectedCity : cities[0];
+  citiesOptions.value = selectedCity ? selectedCity : cities[0];
   cityName.textContent = `${selectedCountry} - ${citiesOptions.value}`;
 }
 
@@ -61,6 +66,8 @@ countriesOptions.addEventListener("change", function () {
       getCities(this.value, response.data[this.value]);
       Location.country = this.value;
       Location.city = citiesOptions.value;
+      localStorage.setItem("selectedCountry", this.value);
+      localStorage.setItem("selectedCity", citiesOptions.value);
       prayerTimes();
     })
     .catch((error) => {
@@ -72,6 +79,8 @@ citiesOptions.addEventListener("change", function () {
   Location.city = this.value;
   Location.country = countriesOptions.value;
   cityName.textContent = `${Location.country} - ${citiesOptions.value}`;
+  localStorage.setItem("selectedCountry", countriesOptions.value);
+  localStorage.setItem("selectedCity", this.value);
   prayerTimes();
 });
 
@@ -97,8 +106,8 @@ function prayerTimes() {
       maghrib.textContent = convertTo12HourFormat(times.Maghrib.split(" ")[0]);
       isha.textContent = convertTo12HourFormat(times.Isha.split(" ")[0]);
     })
-    .catch((error) => {
-      console.error("Error fetching prayer times:", error);
+    .catch(() => {
+      alert("خطا في جلب المواقيت لهذا البلد");
     });
 }
 
