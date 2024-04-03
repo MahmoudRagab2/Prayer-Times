@@ -22,6 +22,14 @@ const arabicDate = `${days[dateNow.getDay()]} - ${dateNow.getDate()}/ ${
 } / ${dateNow.getFullYear()} `;
 dateElement.textContent = arabicDate;
 
+var today = new Date();
+var hijriDate = new Intl.DateTimeFormat("ar-SA-u-ca-islamic", {
+  day: "numeric",
+  month: "long",
+  year: "numeric",
+}).format(today);
+document.querySelector(".date.hijri").textContent = hijriDate;
+
 const countriesOptions = document.querySelector(".country-option");
 const citiesOptions = document.querySelector(".city-option");
 
