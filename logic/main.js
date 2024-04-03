@@ -22,8 +22,8 @@ const arabicDate = `${days[dateNow.getDay()]} - ${dateNow.getDate()}/ ${
 } / ${dateNow.getFullYear()} `;
 dateElement.textContent = arabicDate;
 
-var today = new Date();
-var hijriDate = new Intl.DateTimeFormat("ar-SA-u-ca-islamic", {
+const today = new Date();
+const hijriDate = new Intl.DateTimeFormat("ar-SA-u-ca-islamic", {
   day: "numeric",
   month: "long",
   year: "numeric",
