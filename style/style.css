@@ -43,22 +43,22 @@ body {
 
 .city-date {
   background-color: #00000075;
-  padding: 40px 20px;
+  padding: 20px 10px;
 }
 
 .city-date .city {
   margin-bottom: 20px;
-  font-size: 70px;
+  font-size: 60px;
 }
 
 .city-date .date {
   padding-right: 5px;
-  font-size: 28px;
+  font-size: 24px;
 }
 
 @media screen and (max-width: 567px) {
   .city-date {
-    padding: 20px 20px;
+    padding: 10px 20px;
   }
 
   .city-date .city {
@@ -93,7 +93,7 @@ body {
   }
 
   .city-date .location .country-option {
-    margin-top: 40px;
+    margin-top: 20px;
   }
 }
 
@@ -115,6 +115,11 @@ body {
   text-align: center;
   border: 1px solid #e6e6e6;
   border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 @media screen and (max-width: 567px) {
@@ -137,7 +142,6 @@ body {
 
 .times-box .prayer-time h3 {
   font-size: 30px;
-  margin-bottom: 20px;
 }
 
 .times-box .prayer-time p {
@@ -156,4 +160,22 @@ body {
   .times-box .prayer-time p {
     font-size: 20px;
   }
+}
+
+footer {
+  width: 100%;
+  background-color: #000000a6;
+  height: 60px;
+  padding: 10px;
+  text-align: center;
+}
+
+footer h2 {
+  font-family: Arial, Helvetica, sans-serif;
+  direction: ltr;
+  font-size: 16px;
+}
+
+footer h2 span {
+  color: #8989ff;
 }

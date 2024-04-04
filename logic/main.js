@@ -120,3 +120,7 @@ function prayerTimes() {
 }
 
 prayerTimes();
+
+
+document.querySelector(".footer-year").textContent = dateNow.getFullYear()
+
